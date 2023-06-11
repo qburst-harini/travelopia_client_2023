@@ -33,7 +33,7 @@ export const HomePage = () => {
   };
   return (
     <>
-      <div className="main-header">
+      <div className="main-header" data-testid={"main-header"}>
         <Header />
         <WelcomeSection />
       </div>

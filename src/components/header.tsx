@@ -4,7 +4,7 @@ import "../css/style.css";
 import "../css/utilities.css";
 
 export const Header = () => {
-     const navigate = useNavigate();
+  const navigate = useNavigate();
   return (
     <>
       <div id="navbar" className="navbar top">
@@ -26,7 +26,7 @@ export const Header = () => {
               <a onClick={() => navigate("/travellers-list")}>Travellers</a>
             </li>
             <li>
-              <a onClick={() => navigate("/contact")}>Contact</a>
+              <a onClick={() => navigate("/contact")}>FAQ's</a>
             </li>
           </ul>
         </nav>

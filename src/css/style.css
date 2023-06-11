@@ -68,10 +68,6 @@ img {
   border-bottom: #28a745 2px solid;
 }
 
-#navbar ul li a:current {
-  background-color: #f7c08a !important;
-}
-
 /* Main header */
 .main-header {
   background: url(../images/showcase.jpg) no-repeat center center/cover;
@@ -208,6 +204,10 @@ img {
   outline-color: #28a745;
 }
 
+.space-bottom {
+  padding-bottom: 20px;
+}
+
 /* travellers-list */
 .travellers-list {
   width: 100%;
@@ -230,4 +230,9 @@ img {
   text-align: center;
   background-color: #28a745;
   color: #fff;
+}
+
+/* Contact */
+.question-text {
+  background-color: #d2f2d9;
 }

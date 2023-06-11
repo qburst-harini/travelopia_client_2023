@@ -5,3 +5,4 @@ export const TRAVELLERS_LIST = "Travellers List";
 export const TRAVELLERS_FORM = "Travellers Form";
 export const CREATE_MY_TRIP_NOW = "Create My Trip Now";
 export const REVIEWS_HEADING = "What Our Guests Say";
+export const CONTACT_HEADING = "Frequently Asked Questions";

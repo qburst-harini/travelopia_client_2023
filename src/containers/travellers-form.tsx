@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import { Header, Footer, Reviews } from "../components";
 import { ITravellers } from "./types";
+import { CREATE_MY_TRIP_NOW } from "../utility/labels";
 import "../css/style.css";
 import "../css/utilities.css";
 
@@ -50,10 +51,10 @@ export const TravellersForm = () => {
         <Header />
       </div>
       <main>
-        <section id="travellers-form">
-          <div className="container ">
+        <section id="travellers-form ">
+          <div className="container space-bottom">
             <header className="section-header ">
-              <h2>Create My Trip Now</h2>
+              <h2>{CREATE_MY_TRIP_NOW}</h2>
               <ToastContainer />
             </header>
             <Formik
