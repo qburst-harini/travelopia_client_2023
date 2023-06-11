@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { Formik, Field, Form } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { Header, Footer, Reviews } from "../components";
 import { ITravellers } from "./types";
@@ -28,6 +30,20 @@ export const TravellersForm = () => {
       .required("Email is required"),
   });
 
+  const fetchTravellers = async (values: ITravellers) => {
+    await axios
+      .post(`http://localhost:4000/travellers`, { ...values })
+      .then((res) => {
+        toast(res.data.message, {
+          position: "top-center",
+          type: "success",
+          closeOnClick: true,
+        });
+        setTimeout(() => navigate("/travellers-list"), 6000);
+      })
+      .catch((err) => alert(`user not added successfully: ${err} `));
+  };
+
   return (
     <>
       <div className="form-header">
@@ -38,20 +54,13 @@ export const TravellersForm = () => {
           <div className="container ">
             <header className="section-header ">
               <h2>Create My Trip Now</h2>
+              <ToastContainer />
             </header>
             <Formik
               initialValues={initialForm}
               validationSchema={FormSchema}
-              onSubmit={async (values, { resetForm }) => {
-                await axios
-                  .post(`http://localhost:4000/travellers`, { ...values })
-                  .then((res) => {
-                    alert(res.data.message);
-                    navigate("/travellers-list");
-                  })
-                  .catch((err) =>
-                    alert(`user not added successfully: ${err} `)
-                  );
+              onSubmit={(values, { resetForm }) => {
+                fetchTravellers(values);
                 resetForm(initialForm);
               }}
             >
