@@ -68,6 +68,10 @@ img {
   border-bottom: #28a745 2px solid;
 }
 
+#navbar ul li a:current {
+  background-color: #f7c08a !important;
+}
+
 /* Main header */
 .main-header {
   background: url(../images/showcase.jpg) no-repeat center center/cover;
@@ -202,4 +206,28 @@ img {
 
 .form-field:focus {
   outline-color: #28a745;
+}
+
+/* travellers-list */
+.travellers-list {
+  width: 100%;
+  background-color: #f0eeee;
+  margin: 30px;
+  overflow-x: auto;
+}
+
+.travellers-list td,
+.travellers-list th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+.travellers-list tr:hover {
+  background-color: #ddd;
+}
+.travellers-list th {
+  padding: 12px;
+  text-align: center;
+  background-color: #28a745;
+  color: #fff;
 }

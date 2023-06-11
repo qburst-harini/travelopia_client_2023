@@ -2,14 +2,18 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Formik, Field, Form } from "formik";
 import * as Yup from "yup";
-import { Header, Footer } from "../components";
-import { person1, person2 } from "../images/index";
+import axios from "axios";
+
+import { Header, Footer, Reviews } from "../components";
+import { ITravellers } from "./types";
+import "../css/style.css";
+import "../css/utilities.css";
 
 export const TravellersForm = () => {
   let navigate = useNavigate();
 
   const BUDGET_PER_PERSON = 1000;
-  const initialForm = {
+  const initialForm: ITravellers = {
     name: "",
     email: "",
     city: "india",
@@ -26,20 +30,29 @@ export const TravellersForm = () => {
 
   return (
     <>
-      <header className="form-header">
+      <div className="form-header">
         <Header />
-      </header>
+      </div>
       <main>
         <section id="travellers-form">
-          <div className="container">
+          <div className="container ">
             <header className="section-header ">
-              <h2 className="l-heading">Create My Trip Now</h2>
+              <h2>Create My Trip Now</h2>
             </header>
             <Formik
               initialValues={initialForm}
               validationSchema={FormSchema}
               onSubmit={async (values, { resetForm }) => {
-                console.log("save", values);
+                await axios
+                  .post(`http://localhost:4000/travellers`, { ...values })
+                  .then((res) => {
+                    alert(res.data.message);
+                    navigate("/travellers-list");
+                  })
+                  .catch((err) =>
+                    alert(`user not added successfully: ${err} `)
+                  );
+                resetForm(initialForm);
               }}
             >
               {({ values, setFieldValue, errors, touched }) => {
@@ -99,7 +112,7 @@ export const TravellersForm = () => {
 
                       <button
                         className={`btn ${!saveEnable ? "btn-disable" : ""}`}
-                        type="button"
+                        type="submit"
                         disabled={!saveEnable}
                       >
                         Submit
@@ -112,33 +125,7 @@ export const TravellersForm = () => {
           </div>
         </section>
 
-        <section id="testimonials">
-          <div className="container">
-            <header className="section-header text-light py-3">
-              <h2>What Our Guests Say</h2>
-            </header>
-            <div className="testimonial">
-              <img src={person1} alt="Samantha" />
-              <p>
-                "Being a newbie to traveling in Europe, I needed guidance. I
-                found that and much more with the planning of the trip and
-                support through the whole process as well as while being on the
-                trip itself. We enjoyed our trip to Portugal without the
-                logistical worries. When we plan another big trip, it will again
-                be through Enchanting Travels."
-              </p>
-            </div>
-
-            <div className="testimonial">
-              <img src={person2} alt="Jen" />
-              <p>
-                "Our experience was personalized to us. Each tour guide was
-                knowledgeable and so nice. We cannot put into words how great
-                the overall experience was for us."
-              </p>
-            </div>
-          </div>
-        </section>
+        <Reviews />
       </main>
 
       <Footer />

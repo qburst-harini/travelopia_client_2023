@@ -10,7 +10,7 @@ export const Header = () => {
       <div id="navbar" className="navbar top">
         <h1 className="logo">
           <span className="text-primary">
-            <i className="fas fa-book-open"></i> T
+            <i className="fas fa-globe fa-solid"></i> T
           </span>
           ravelopia
         </h1>

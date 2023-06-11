@@ -1,65 +1,43 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import "../css/style.css";
 import "../css/utilities.css";
-import { Header, Footer } from "../components";
-import { place1, place2, place3 } from "../images/index";
+import { Header, Footer, WelcomeSection } from "../components";
+import { facility } from "../utility/mock";
+import { WELCOME_HEADING } from "../utility/labels";
 
 export const HomePage = () => {
-  const navigate = useNavigate();
-  return (
-    <>
-      <header className="main-header">
-        <Header />
-
-        <div className="content">
-          <h1>To Travel, is to Live</h1>
-          <p>Enrich Lives Through Inspiring Travel Experiences</p>
-          <button onClick={() => navigate("/travellers-form")} className="btn">
-            Create My Trip Now
-          </button>
-        </div>
-      </header>
+  const FacilitySection = () => {
+    return (
       <main>
         <section id="facility" className="icons bg-light">
           <header className="section-header ">
-            <h2 className="l-heading">What make us different</h2>
+            <h2 className="l-heading">{WELCOME_HEADING}</h2>
           </header>
 
           <div className="flex-items">
-            <div className="f-item">
-              <i className="fa-sharp fas fa-heart fa-2x"></i>
-              <div>
-                <h3>Safety & Security</h3>
-                <p>
-                  Your safety and wellbeing are our top priorities. We only
-                  offer safety standards
-                </p>
-              </div>
-            </div>
-            <div className="f-item">
-              <i className="fas fa-star fa-2x"></i>
-              <div>
-                <h3>Unique Experiences</h3>
-                <p>
-                  Tell us your travel dream and we will create best experiences
-                  for you
-                </p>
-              </div>
-            </div>
-            <div className="f-item">
-              <i className="fas fa-clock fa-2x"></i>
-              <div>
-                <h3>Fully Supported Travel</h3>
-                <p>
-                  Your dedicated and personal trip coordinator is available
-                  around the clock for you
-                </p>
-              </div>
-            </div>
+            {facility.map((item, idx) => {
+              return (
+                <div className="f-item" key={`${item.topic}-${idx}`}>
+                  <i className={item.icon}></i>
+                  <div>
+                    <h3>{item.topic}</h3>
+                    <p>{item.desc}</p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </section>
       </main>
+    );
+  };
+  return (
+    <>
+      <div className="main-header">
+        <Header />
+        <WelcomeSection />
+      </div>
+      <FacilitySection />
       <Footer />
     </>
   );

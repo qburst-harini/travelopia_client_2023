@@ -24,8 +24,9 @@
 .btn:hover {
   opacity: 0.9;
 }
-.btn-disable, .btn-disable:hover  {
-    opacity: 0.5;
+.btn-disable,
+.btn-disable:hover {
+  opacity: 0.5;
 }
 
 .bg-dark {
@@ -67,7 +68,7 @@
 
 .section-header h2 {
   font-size: 30px;
-  margin: 5px 0;
+  margin: 8px 0;
 }
 
 /* Padding */
@@ -82,10 +83,15 @@
 }
 
 .container {
-  /* margin: auto; */
   max-width: 1100px;
   overflow: auto;
-  margin: 20px 20px;
+  margin: 20px auto;
+}
+.list-container {
+    max-width: 1100px;
+  overflow: auto;
+  margin: 20px auto;
+  height: 75vh;
 }
 
 /* Mobile */
