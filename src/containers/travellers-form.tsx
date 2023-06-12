@@ -117,7 +117,7 @@ export const TravellersForm = () => {
                         name="dollars"
                         className="form-field"
                         readOnly
-                        value={`$${values.dollars} is calculated Dollars as per No.of Travellers`}
+                        value={`$${values.dollars} - Calculated Dollars as per No.of Travellers`}
                       />
 
                       <button

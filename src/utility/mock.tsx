@@ -26,9 +26,7 @@ export const testimonials = [
     personImg: person1,
     message: `Being a newbie to traveling in Europe, I needed guidance. I found
             that and much more with the planning of the trip and support through
-            the whole process as well as while being on the trip itself. We
-            enjoyed our trip to Portugal without the logistical worries. When we
-            plan another big trip, it will again be through Enchanting Travels.`,
+            the whole process as well as while being on the trip itself.`,
   },
   {
     personImg: person2,

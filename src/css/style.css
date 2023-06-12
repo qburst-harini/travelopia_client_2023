@@ -71,7 +71,7 @@ img {
 /* Main header */
 .main-header {
   background: url(../images/showcase.jpg) no-repeat center center/cover;
-  height: 80vh;
+  height: 85vh;
   position: relative;
   color: #fff;
 }
